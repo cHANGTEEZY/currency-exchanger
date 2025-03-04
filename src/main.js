@@ -8,6 +8,7 @@ import displayExchangeRates from "./modules/displayEchangeRate.js";
 const onLoad = async () => {
   const today = new Date();
   const formattedDate = today.toISOString().split("T")[0];
+  document.getElementById("date-selector").max = formattedDate;
   document.getElementById("date-selector").value = formattedDate;
 
   await dropDown();
