@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* VITE_API_KEY=572d0fcf21e5400ca5b703c69df927d6  */
+:root {
+  --primary: #6d6eb5;
+  --primary-dark: #4c4981;
+  --secondary: #3f3e3c;
+  --tertiary: rgb(71, 73, 72);
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --background: #f9fafb;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius: 8px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+#main-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.currency-content-container {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Heading and Description */
+.currency-content-container h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.currency-content-container p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Date Selector */
+.date-selector-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.date-selector-div label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+#date-selector {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#date-selector:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Country Selectors */
+.country-selector-div {
+  gap: 2rem;
+  position: relative;
+}
+
+.place-holder {
+  text-align: center;
+
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  padding: 10px;
+  transition: all ease 200ms;
+  outline: 1.3px solid var(--tertiary);
+}
+
+.place-holder:hover {
+  outline-offset: 1.3px;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.place-holder-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 30px;
+    height: auto;
+  }
+}
+
+.select-country-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 10;
+}
+
+.select-country-dropdown.visible {
+  display: block;
+}
+
+.drop-down-li-item {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease-in-out;
+}
+
+.drop-down-li-item:hover {
+  background-color: var(--tertiary);
+}
+
+.drop-down-li-item p {
+  color: var(--text);
+}
+
+.drop-down-li-item:hover p {
+  color: white;
+}
+
+.drop-down-li-item img {
+  width: 30px;
+  height: auto;
+}
+
+/* Amount Input */
+.amount-slider-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.amount-slider-div label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+#amount {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#amount:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Result Display */
+.result-div {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-radius: var(--radius);
+  padding: 1rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* Convert Button */
+.convert-btn {
+  background: linear-gradient(
+    135deg,
+    var(--secondary),
+    var(--primary),
+    var(--primary-dark),
+    var(--secondary)
+  );
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.875rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: 1px solid var(--primary-dark);
+}
+
+.convert-btn:hover {
+  outline-offset: 3px;
+}
+
+.convert-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .country-selector-div {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .country-selector-div::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .currency-content-container {
+    padding: 1.5rem;
+  }
+}

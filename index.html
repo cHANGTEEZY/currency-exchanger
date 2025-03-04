@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Exchanger</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="shortcut icon"
+      href="/images/currency.avif"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Currency Exchanger</h1>
+    </header>
+    <main>
+      <section id="main-container">
+        <div class="currency-content-container">
+          <div>
+            <h2>Convert Currencies</h2>
+            <p>Get exchange rates for your selected date</p>
+          </div>
+          <div class="date-selector-div">
+            <label for="date-selector">Date</label>
+            <input type="date" name="date-selector" id="date-selector" />
+          </div>
+          <div class="country-selector-div">
+            <div class="country-from" id="country-from">
+              <p class="place-holder">Select a country</p>
+              <ul
+                id="select-country-from-dropdown"
+                class="select-country-dropdown"
+              ></ul>
+            </div>
+            <div class="country-to" id="country-to">
+              <p class="place-holder">Select a country</p>
+              <ul
+                id="select-country-to-dropdown"
+                class="select-country-dropdown"
+              ></ul>
+            </div>
+          </div>
+          <div class="amount-slider-div">
+            <label for="amount">Amount</label>
+            <input
+              name="amount"
+              id="amount"
+              title="amount"
+              type="number"
+              value="100"
+              min="1"
+            />
+          </div>
+          <div class="result-div">100NPR = 1$ ?</div>
+          <button type="button" id="convert" class="convert-btn">
+            Convert
+          </button>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
