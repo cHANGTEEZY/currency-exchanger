@@ -9,8 +9,8 @@ export default function getAllInputData() {
 
     if (text === "Select a country") {
       return {
-        countryName: null,
-        currency: undefined
+        countryName: undefined,
+        currency: undefined,
       };
     }
 

@@ -25,6 +25,8 @@ convert.addEventListener("click", async () => {
   }
 
   if (
+    inputData.placeHolderArray[0].countryName === undefined ||
+    inputData.placeHolderArray[1].countryName === undefined ||
     inputData.placeHolderArray[0].currency === undefined ||
     inputData.placeHolderArray[1].currency === undefined
   ) {
