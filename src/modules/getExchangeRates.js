@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=";
+const BASE_URL = "https://api.currencyfreaks.com/v2.0/rates/";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getExchangeRates = async (inputData) => {
@@ -11,6 +11,7 @@ const getExchangeRates = async (inputData) => {
 
   const fromCurrency = inputData.placeHolderArray[0].currency;
   const toCurrency = inputData.placeHolderArray[1].currency;
+  const date = inputData.date; // Get the date from input data
 
   if (!fromCurrency || !toCurrency) {
     console.error("Invalid input data: Missing currency codes.");
@@ -18,9 +19,19 @@ const getExchangeRates = async (inputData) => {
   }
 
   const symbols = `${fromCurrency},${toCurrency}`;
-  let API_URL = `${BASE_URL}${API_KEY}&symbols=${symbols}`;
 
-  // console.log(API_URL);
+  const endpoint = date === new Date().toISOString().split('T')[0] ?
+    'latest' :
+    `historical?date=${date}`;
+
+  let API_URL = `${BASE_URL}${endpoint}?apikey=${API_KEY}&symbols=${symbols}`;
+
+
+  if (endpoint !== 'latest') {
+    API_URL = `${BASE_URL}${endpoint}&apikey=${API_KEY}&symbols=${symbols}`;
+  }
+
+
 
   try {
     if (!API_KEY) {
