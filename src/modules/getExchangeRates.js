@@ -20,18 +20,16 @@ const getExchangeRates = async (inputData) => {
 
   const symbols = `${fromCurrency},${toCurrency}`;
 
-  const endpoint = date === new Date().toISOString().split('T')[0] ?
-    'latest' :
-    `historical?date=${date}`;
+  const endpoint =
+    date === new Date().toISOString().split("T")[0]
+      ? "latest"
+      : `historical?date=${date}`;
 
   let API_URL = `${BASE_URL}${endpoint}?apikey=${API_KEY}&symbols=${symbols}`;
 
-
-  if (endpoint !== 'latest') {
+  if (endpoint !== "latest") {
     API_URL = `${BASE_URL}${endpoint}&apikey=${API_KEY}&symbols=${symbols}`;
   }
-
-
 
   try {
     if (!API_KEY) {
