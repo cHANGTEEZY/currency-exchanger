@@ -1,4 +1,4 @@
-# Currency Exchanger User
+# Currency Exchanger
 
 ## Description
 
