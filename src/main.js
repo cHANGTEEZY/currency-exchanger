@@ -37,6 +37,7 @@ convert.addEventListener("click", async () => {
 
   document.querySelector(".result-div").textContent = "Loading...";
   convert.disabled = true;
+  convert.classList.add("disabled");
 
   try {
     const exchangeRateData = await getExchangeRates(inputData);
@@ -53,5 +54,6 @@ convert.addEventListener("click", async () => {
       "An error occurred during conversion.";
   } finally {
     convert.disabled = false;
+    convert.classList.remove("disabled");
   }
 });

@@ -256,6 +256,10 @@ main {
   transform: translateY(0);
 }
 
+#convert.disabled:hover {
+  cursor: not-allowed;
+}
+
 @media (max-width: 480px) {
   .country-selector-div {
     flex-direction: column;
