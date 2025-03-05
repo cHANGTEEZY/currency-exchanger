@@ -11,7 +11,7 @@ const getExchangeRates = async (inputData) => {
 
   const fromCurrency = inputData.placeHolderArray[0].currency;
   const toCurrency = inputData.placeHolderArray[1].currency;
-  const date = inputData.date; // Get the date from input data
+  const date = inputData.date;
 
   if (!fromCurrency || !toCurrency) {
     console.error("Invalid input data: Missing currency codes.");

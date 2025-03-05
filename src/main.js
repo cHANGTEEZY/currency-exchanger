@@ -17,10 +17,8 @@ const onLoad = async () => {
 onLoad();
 
 const convert = document.getElementById("convert");
-
 convert.addEventListener("click", async () => {
   const inputData = getAllInputData();
-  // console.log("Input data:", inputData);
 
   if (!inputData.date) {
     alert("Please select a date");
@@ -38,10 +36,10 @@ convert.addEventListener("click", async () => {
   }
 
   document.querySelector(".result-div").textContent = "Loading...";
+  convert.disabled = true;
 
   try {
     const exchangeRateData = await getExchangeRates(inputData);
-    // console.log("Exchange rate data:", exchangeRateData);
 
     if (exchangeRateData) {
       displayExchangeRates(exchangeRateData, inputData);
@@ -53,5 +51,7 @@ convert.addEventListener("click", async () => {
     console.error("Error in conversion process:", error);
     document.querySelector(".result-div").textContent =
       "An error occurred during conversion.";
+  } finally {
+    convert.disabled = false;
   }
 });

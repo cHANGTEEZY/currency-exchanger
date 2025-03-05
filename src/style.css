@@ -229,8 +229,9 @@ main {
 /* Convert Button */
 .convert-btn {
   background: linear-gradient(
-    135deg,
+    120deg,
     var(--secondary),
+    var(--primary-dark),
     var(--primary),
     var(--primary-dark),
     var(--secondary)
